@@ -30,10 +30,9 @@ Works with [ 0.8 / 0.9 / 0.10 / 0.11 ]
 ## Usage
 
 ```js
-var kickbox = require('kickbox');
-var client  = kickbox.client('Your_API_Key_Here');
+var kickbox = require('kickbox').client('Your_API_Key_Here').kickbox();
 
-client.verify("test@example.com", function (err, response) {
+kickbox.verify("test@example.com", function (err, response) {
   // Let's see some results
   console.log(response.body);
 });
