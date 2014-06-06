@@ -7,14 +7,14 @@
   "keywords": ["email", "validation", "kickbox"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kickbox/kickbox-node"
+    "url": "https://github.com/kickboxio/kickbox-node"
   },
   "main": "./lib/index.js",
   "dependencies": {
     "request": "2.x.x"
   },
   "bugs": {
-    "url": "https://github.com/kickbox/kickbox-node/issues"
+    "url": "https://github.com/kickboxio/kickbox-node/issues"
   },
   "license": "MIT",
   "engines": {
