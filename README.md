@@ -68,7 +68,7 @@ A successful API call responds with the following values:
 MIT
 
 ## Bug Reports
-Report [here](https://github.com/kickbox/kickbox-node/issues).
+Report [here](https://github.com/kickboxio/kickbox-node/issues).
 
 ## Need Help?
 help@kickbox.io
