@@ -1,10 +1,10 @@
 {
   "name": "kickbox",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Official kickbox API library client for node.js",
   "author": "Chaitanya Surapaneni <chaitanya.surapaneni@kickbox.io> (https://github.com/kickboxio)",
-  "homepage": "https://kickbox.io",
-  "keywords": ["email", "validation", "kickbox"],
+  "homepage": "http://kickbox.io",
+  "keywords": ["free", "email", "validation", "kickbox", "service", "verification", "sendex"],
   "repository": {
     "type": "git",
     "url": "https://github.com/kickboxio/kickbox-node"
