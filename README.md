@@ -37,6 +37,16 @@ kickbox.verify("test@example.com", function (err, response) {
   console.log(response.body);
 });
 ```
+
+#### Options
+
+**timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000.
+
+```js
+// Example with options
+kickbox.verify("test@example.com", {timeout: 6000}, function (err, response) {/*...*/});
+```
+
 ### Response information
 
 A successful API call responds with the following values:
