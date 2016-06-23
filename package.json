@@ -1,23 +1,42 @@
 {
   "name": "kickbox",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Official kickbox API library client for node.js",
   "author": "Chaitanya Surapaneni <chaitanya.surapaneni@kickbox.io> (https://github.com/kickboxio)",
   "homepage": "http://kickbox.io",
-  "keywords": ["free", "email", "validation", "kickbox", "service", "verification", "sendex"],
+  "keywords": [
+    "free",
+    "email",
+    "validation",
+    "kickbox",
+    "service",
+    "verification",
+    "sendex"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kickboxio/kickbox-node"
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "request": "2.x.x"
+    "bluebird": "^3.3.5",
+    "lodash": "^4.12.0",
+    "request-promise": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "chai-as-promised": "^5.3.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "*"
   },
   "bugs": {
     "url": "https://github.com/kickboxio/kickbox-node/issues"
   },
+  "scripts": {
+    "prebulish": "coffee -b --no-header -o lib -c src"
+  },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   }
 }
