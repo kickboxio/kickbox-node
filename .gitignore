@@ -1,2 +1,7 @@
 node_modules
-npm-debug.log
+npm-debug.log*
+.DS_STORE
+lib/*
+.idea
+test.coffee
+test/*

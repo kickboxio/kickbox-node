@@ -27,14 +27,23 @@ $ npm install kickbox
 
 Works with [ 0.8 / 0.9 / 0.10 / 0.11 ]
 
-## Usage
+
+## Verification
+
+### Usage
 
 ```js
-var kickbox = require('kickbox').client('Your_API_Key_Here').kickbox();
-
-kickbox.verify("test@example.com", function (err, response) {
+var kickbox = require('kickbox');
+var verification = new kickbox.Verification('Your_API_Key_Here');
+verification.verify("test@example.com").then(function(response){
   // Let's see some results
   console.log(response.body);
+  
+  // Check the headers
+  console.log(response.headers);
+  
+}).catch(function(err){
+  console.log(err);
 });
 ```
 
@@ -44,7 +53,9 @@ kickbox.verify("test@example.com", function (err, response) {
 
 ```js
 // Example with options
-kickbox.verify("test@example.com", {timeout: 6000}, function (err, response) {/*...*/});
+var kickbox = require('kickbox');
+var verification = new kickbox.Verification('Your_API_Key_Here');
+verification.verify("test@example.com", 6000).then(/*...*/).catch(/*...*/);
 ```
 
 ### Response information
@@ -81,6 +92,79 @@ Along with each response, the following HTTP headers are included:
 
 * `X-Kickbox-Balance` - Your remaining verification credit balance (Daily + On Demand).
 * `X-Kickbox-Response-Time` - The elapsed time (in milliseconds) it took Kickbox to process the request.
+
+## Authentication
+
+Sends the authentication email.
+
+### Usage
+```js
+
+var kickbox = require('kickbox');
+var authentication = new kickbox.Authentication("app_api_key", "app_code");
+```
+
+## Authenticate
+ 
+### Usage
+```js
+authentication.authenticate("fingerprint").then(function(response){
+  //Get the response
+  console.log(response.body);
+  
+}).catch(function(err){
+  console.log(err);
+});
+```
+### Response information
+
+A successful API call responds to the foloowing values:
+
+* **status** `string` - The current status of the authentication. See Events for a list of statuses.
+* **track_token** `string` - A token which can be passed to Kickbox.track to render the client-side tracker.
+* **id** `string` - The id of this authentication request. Used to check the status of the authentication.
+* **success** `true | false` - Whether or not the request completed successfully.
+* **message** `string | null` - Provides a textual explanation of any errors (undeliverable email address, etc).
+
+*As a security best practice, the value of `id` should not be exposed to the user.*
+
+### Status
+
+Reports the status of an authentication email.
+
+#### Usage
+```js
+
+// Get Authentication Status
+authenticate.getStatus("id").then(function(response){
+ //Get the response
+ console.log(response.body);
+}).catch(function(err){
+ console.log(err);
+});
+
+```
+
+### Response information
+
+A successful API call responds to the following values
+
+* **occurred_at** `string` - UTC timestamp of current status.
+* **last_sent** `string` - UTC timestamp when the most recent authentication email was sent.
+* **status** `string` - The current status of the authentication. See Events for a list of statuses.
+* **geo_city** `string`` | null` - City of the authenticated user (based on IP address).
+* **geo_region** `string | null` - Region (state) of the authenticated user (based on IP address).
+* **geo_country** `string | null` - Country of the authenticated user (based on IP address).
+* **ip_address** `string | null` - IP address of the authenticated user.
+* **reason** `string` | null - Reason why the authentication email was not sent.
+  * `disposable` - The domain the user provided is for a disposable email service.
+  * `invalid_domain` - The domain the user provided does not exist.
+  * `rejected_email` - The mail server of the recipient rejected the message. Usually because the email address does not exist.
+* **id** `string` - Unique identifier of the authentication.
+* **email** `string` - Email address of user.
+* **name** `string | null` - Placeholder for future feature. Not used at this time.
+* **success** `true | false` - Whether or not the request completed successfully.
+* **message** `string | null` - Provides a textual explanation of any errors (undeliverable email address, etc).
 
 ## License
 MIT
