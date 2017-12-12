@@ -25,7 +25,7 @@ $ npm install kickbox
 
 #### Versions
 
-Works with [ 0.8 / 0.9 / 0.10 / 0.11 ]
+Works with Node 0.8+
 
 ## Usage
 
