@@ -13,7 +13,7 @@ Kickbox determines if an email address is not only valid, but associated with a 
 
 ## Getting Started
 
-To begin, hop over to [kickbox.io](http://kickbox.io) and create a free account. Once you've signed up and logged in, click on **API Settings** and then click **Add API Key**. Take note of the generated API Key - you'll need it to setup the client as explained below.
+To begin, hop over to [kickbox.com](http://kickbox.com) and create a free account. Once you've signed up and logged in, click on **API Settings** and then click **Add API Key**. Take note of the generated API Key - you'll need it to setup the client as explained below.
 
 ## Installation
 
@@ -69,7 +69,7 @@ A successful API call responds with the following values:
 * **disposable** `true | false` - *true* if the email address uses a *disposable* domain like trashmail.com or mailinator.com.
 * **accept_all** `true | false` - *true* if the email was accepted, but the domain appears to accept all emails addressed to that domain.
 * **did_you_mean** `null | string` - Returns a suggested email if a possible spelling error was detected. (`bill.lumbergh@gamil.com` -> `bill.lumbergh@gmail.com`)
-* **sendex** `float` - A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found [here](http://docs.kickbox.io/v2.0/docs/the-sendex).
+* **sendex** `float` - A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found [here](http://docs.kickbox.com/v2.0/docs/the-sendex).
 * **email** `string` - Returns a normalized version of the provided email address. (`BoB@example.com` -> `bob@example.com`)
 * **user** `string` - The user (a.k.a local part) of the provided email address. (`bob@example.com` -> `bob`)
 * **domain** `string` - The domain of the provided email address. (`bob@example.com` -> `example.com`)
@@ -89,4 +89,4 @@ MIT
 Report [here](https://github.com/kickboxio/kickbox-node/issues).
 
 ## Need Help?
-help@kickbox.io
+help@kickbox.com
